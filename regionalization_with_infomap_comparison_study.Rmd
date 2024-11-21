@@ -26,7 +26,7 @@ df
 ```
 # Write input infomap  
 ```{r}
-path_write_Input <-  "C:/R_projects/Hortal_collaboration/MAREANO_biogeography/regionalization/"
+path_write_Input <-  "regionalization"
 Input_name <- 'Ip_Benthos.net'
 edges_file <- 'edge_Benthos'
 # Create input in the same folder
