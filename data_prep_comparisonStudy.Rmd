@@ -1,0 +1,41 @@
+---
+title: "Data prep for infomap for comparison study"
+output: html_notebook
+---
+# Libraries
+```{r}
+library(dplyr)
+library(qdapTools)
+library(openxlsx)
+```
+
+# Station filter
+Select agreed on stations
+```{r}
+comp_path <- "U:\\Mareano\\VIDEOLAB\\VIDEO DATA\\200m_scale_species_by_sample\\Data_Delivery_2024\\"
+#comp_path <- "data"
+spp_dens <- read.csv(paste0(comp_path,"species_densities.csv")) %>% as.data.frame
+samp_info_cs <- read.csv(paste0(comp_path,"sample_info.csv")) %>% as.data.frame
+
+spp_dens <- spp_dens %>% mutate(VL = SampID %l% data.frame(samp_info_cs$SampID2, samp_info_cs$VL))
+otu_orig_cs <- spp_dens %>% 
+    filter(!is.na(SampID))
+```
+
+# Species filter
+Insert code for cleaning up OTUs here, if needed
+```{r}
+Taxonary<-read.xlsx(PathTaxonary , sheet = 1)
+
+# filter small
+otu_new_cs <- otu_orig_cs %>% filter(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$basal_area_cm2)>4|
+                                       is.na(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$basal_area_cm2)))
+
+# filter non benthic
+otu_new_cs <- otu_new_cs %>% filter(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$Ecosystem_section=="Benthic"))
+
+# filter non organism
+otu_new_cs <- otu_new_cs %>% filter(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$Object_type=="Organism"))
+
+```
+
