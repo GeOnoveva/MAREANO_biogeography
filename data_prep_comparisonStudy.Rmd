@@ -25,6 +25,7 @@ otu_orig_cs <- spp_dens %>%
 # Species filter
 Insert code for cleaning up OTUs here, if needed
 ```{r}
+#PathTaxonary <- "data"
 Taxonary<-read.xlsx(PathTaxonary , sheet = 1)
 
 # filter small
