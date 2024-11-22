@@ -3,6 +3,9 @@
 02_Op
 infomap-ubuntu
 
+/00_Data.lnk
+/02_Op.lnk
+
 # Ignorar todos los archivos .lnk (si corresponde)
 *.lnk
 
