@@ -1,0 +1,7 @@
+# Excluir carpetas de datos vinculantes
+00_Data/
+02_OOp/
+inofmap-ubuntu/
+
+# Excluir el archivo de configuración YAML
+config.yml
