@@ -1,6 +1,9 @@
 # Excluir carpetas de datos vinculantes
 *.lnk
 infomap-ubuntu/
+/00_Data.lnk
+/02_Op.lnk
+/infomap-ubuntu.lnk
 
 # Excluir el archivo de configuración YAML
 config.yml
