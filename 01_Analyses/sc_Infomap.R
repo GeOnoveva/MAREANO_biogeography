@@ -17,8 +17,8 @@
 # Load
 # ____________________________________________________________________
           
-          # person  <- 'Genoveva'
-          person  <- 'Ruben'  
+          person  <- 'Genoveva'
+          #person  <- 'Ruben'  
           
           if (person == 'Ruben') {comp_path <- "00_Data/"}
           if (person == 'Genoveva') {comp_path <- "U:\\Mareano\\VIDEOLAB\\VIDEO DATA\\200m_scale_species_by_sample\\Data_Delivery_2024\\"}
