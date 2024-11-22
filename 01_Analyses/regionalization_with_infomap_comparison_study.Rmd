@@ -34,7 +34,9 @@ df
 ```
 # Write input infomap  
 ```{r}
-path_write_Input <-  "regionalization"
+if (person == 'Genoveva') {path_write_Input <-  "regionalization/"}
+if (person == 'Ruben') {path_write_Input <-  "regionalization/"}
+
 Input_name <- 'Ip_Benthos.net'
 edges_file <- 'edge_Benthos'
 # Create input in the same folder
@@ -42,13 +44,13 @@ write.input.info(da, path_write_Input, Input_name, edges_file, weighted = T)
 ```
 # Run Infomap
 ```{r}
-path.info <- "infomap-ubuntu"
+path.info <- "infomap-ubuntu/"
 
 # Directorio donde esta el input
-path.in <- "regionalization"
+path.in <- "regionalization/"
 
 # Directorio donde quieres guardar el output
-path.out <- "regionalization"
+path.out <- "regionalization/"
           
 # -N X = numero de analisis
 # -s = seed
@@ -150,8 +152,8 @@ db_Metrics
 # Export and visualize
 ```{r}
 library(sf)
-
-db_Spatial <- db_Metrics %>% mutate(x_coord = cell %l% data.frame(samp_info_cs$SampID2, samp_info_cs$x_coord)) %>%
+db_Spatial <- db_Metrics %>% 
+  mutate(x_coord = cell %l% data.frame(samp_info_cs$SampID2, samp_info_cs$x_coord)) %>%
   mutate(y_coord = cell %l% data.frame(samp_info_cs$SampID2, samp_info_cs$y_coord)) %>%
   filter(!is.na(x_coord))
 
