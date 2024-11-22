@@ -23,8 +23,6 @@
           if (person == 'Ruben') {comp_path <- "00_Data/"}
           if (person == 'Genoveva') {comp_path <- "U:\\Mareano\\VIDEOLAB\\VIDEO DATA\\200m_scale_species_by_sample\\Data_Delivery_2024\\"}
           
-          if (person == 'Genoveva') {source('sc_func_Infomap.R')}
-          if (person == 'Ruben') {source('01_Analyses/sc_func_Infomap.R')}
           
           spp_dens <- read.csv(paste0(comp_path,"species_densities.csv")) %>% as.data.frame
           samp_info_cs <- read.csv(paste0(comp_path,"sample_info.csv")) %>% as.data.frame
@@ -42,7 +40,7 @@
 # ___________________________________________________________________
           
           if (person == 'Ruben') {PathTaxonary <- "00_Data/Taxonary.xlsx"}
-          # if (person == 'Genoveva') {PathTaxonary <- "data"}
+          if (person == 'Genoveva') {PathTaxonary <- "data"}
           Taxonary<-read.xlsx(PathTaxonary , sheet = 1)
           
           # filter small
