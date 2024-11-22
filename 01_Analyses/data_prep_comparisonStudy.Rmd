@@ -30,6 +30,8 @@ otu_orig_cs <- spp_dens %>%
 Insert code for cleaning up OTUs here, if needed
 ```{r}
 # PathTaxonary <- "data"
+if (person == 'Ruben') {PathTaxonary <- "00_Data/Taxonary.xlsx"}
+# if (person == 'Genoveva') {PathTaxonary <- "data"}
 Taxonary<-read.xlsx(PathTaxonary , sheet = 1)
 
 # filter small

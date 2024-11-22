@@ -3,11 +3,19 @@ title: "Bioregionalization of the area selected for the comparsion study using t
 output: html_notebook
 ---
 
+<!-- Person -->
+```{r}
+# person  <- 'Genoveva'
+person  <- 'Ruben'
+
+if (person == 'Genoveva') {source('sc_func_Infomap.R')}
+if (person == 'Ruben') {source('01_Analyses/sc_func_Infomap.R')}
+```
+
 # Prep
 ```{r}
 library(tidyverse)
 library(sp)
-source('sc_func_Infomap.R')
 ```
 
 # Data
