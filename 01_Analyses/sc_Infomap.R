@@ -21,37 +21,38 @@
           #person  <- 'Ruben'  
           
           if (person == 'Ruben') {comp_path <- "00_Data/"}
-          if (person == 'Genoveva') {comp_path <- "U:\\Mareano\\VIDEOLAB\\VIDEO DATA\\200m_scale_species_by_sample\\Data_Delivery_2024\\"}
+          if (person == 'Genoveva') {comp_path <- "C:/Users/genoveva/Havforskningsinstituttet/MAREANO Biotope modelling - General/VideoData/Output"}
           
           
-          spp_dens <- read.csv(paste0(comp_path,"species_densities.csv")) %>% as.data.frame
+          #spp_dens <- read.csv(paste0(comp_path,"species_densities.csv")) %>% as.data.frame
           samp_info_cs <- read.csv(paste0(comp_path,"sample_info.csv")) %>% as.data.frame
           
 # 
 # Station filter
 # ____________________________________________________________________
-          spp_dens <- spp_dens %>% 
-            mutate(VL = SampID %l% data.frame(samp_info_cs$SampID2, samp_info_cs$VL))
+          #spp_dens <- spp_dens %>% 
+          #  mutate(VL = SampID %l% data.frame(samp_info_cs$SampID2, samp_info_cs$VL))
           
-          otu_orig_cs <- spp_dens %>% filter(!is.na(SampID))
+          load(file.path(comp_path, "otu_Video_Small.rda"))
+          da <- pivot_longer(otu, cols= c(1:122))
           
 # 
 # Data cleaning
 # ___________________________________________________________________
           
-          if (person == 'Ruben') {PathTaxonary <- "00_Data/Taxonary.xlsx"}
-          if (person == 'Genoveva') {PathTaxonary <- "data"}
-          Taxonary<-read.xlsx(PathTaxonary , sheet = 1)
-          
-          # filter small
-          otu_new_cs <- otu_orig_cs %>% filter(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$basal_area_cm2)>4|
-                                                 is.na(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$basal_area_cm2)))
-          
-          # filter non benthic
-          otu_new_cs <- otu_new_cs %>% filter(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$Ecosystem_section=="Benthic"))
-          
-          # filter non organism
-          otu_new_cs <- otu_new_cs %>% filter(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$Object_type=="Organism"))
+          # if (person == 'Ruben') {PathTaxonary <- "00_Data/Taxonary.xlsx"}
+          # if (person == 'Genoveva') {PathTaxonary <- "U:\\Mareano\\VIDEOLAB\\VIDEO DATA\\200m_scale_species_by_sample\\Data_Delivery_2024\\Taxonary.xlsx"}
+          # Taxonary<-read.xlsx(PathTaxonary , sheet = 1)
+          # 
+          # # filter small
+          # otu_new_cs <- otu_orig_cs %>% filter(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$basal_area_cm2)>4|
+          #                                        is.na(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$basal_area_cm2)))
+          # 
+          # # filter non benthic
+          # otu_new_cs <- otu_new_cs %>% filter(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$Ecosystem_section=="Benthic"))
+          # 
+          # # filter non organism
+          # otu_new_cs <- otu_new_cs %>% filter(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$Object_type=="Organism"))
           
           
           
@@ -66,11 +67,11 @@
           # Columna 3: weight of the occurrences (abundance, density...)
           
           # Read the file
-          da <- otu_new_cs
-          names(da)<- c("SampID", "clean_taxonomy",  "count","density_n100m2", "VL")
+          #da <- otu_new_cs
+          names(da)<- c("SampID", "clean_taxonomy",  "density_n100m2")
           head(da)
-          da <- data.frame(da) %>% 
-            select(SampID, clean_taxonomy, density_n100m2)
+          # da <- data.frame(da) %>% 
+          #   select(SampID, clean_taxonomy, density_n100m2)
           
           
 # 
@@ -86,7 +87,7 @@
             # Directorio donde quieres guardar el output
             path.out <- "/mnt/c/R_projects/Hortal_collaboration/MAREANO_biogeography/regionalization/"
             # Run the function to get the 
-            dir.info.out <- 'C:/R_projects/Hortal_collaboration/MAREANO_biogeography/regionalization/Ip_Benthos.tree'
+            dir.info.out <- 'C:/R_projects/Hortal_collaboration/MAREANO_biogeography/regionalization/Ip_Benthos2.tree'
             dir.edges <- 'C:/R_projects/Hortal_collaboration/MAREANO_biogeography/regionalization/edge_Benthos'
           }
           
@@ -164,7 +165,7 @@
           # :::::::::::::: 
           # Only the table
           # :::::::::::::: 
-          db_output <- info.out(dir.info.out)
+          db_output <- info.out(dir.info.out) # poner el directorio nuevo
           db_output
           
           
