@@ -7,13 +7,17 @@ output: html_notebook
 library(dplyr)
 library(qdapTools)
 library(openxlsx)
+
+# person  <- 'Genoveva'
+person  <- 'Ruben'
 ```
 
 # Station filter
 Select agreed on stations
 ```{r}
-comp_path <- "U:\\Mareano\\VIDEOLAB\\VIDEO DATA\\200m_scale_species_by_sample\\Data_Delivery_2024\\"
-#comp_path <- "data"
+if (person == 'Ruben') {comp_path <- "00_Data/"}
+if (person == 'Genoveva') {comp_path <- "U:\\Mareano\\VIDEOLAB\\VIDEO DATA\\200m_scale_species_by_sample\\Data_Delivery_2024\\"}
+
 spp_dens <- read.csv(paste0(comp_path,"species_densities.csv")) %>% as.data.frame
 samp_info_cs <- read.csv(paste0(comp_path,"sample_info.csv")) %>% as.data.frame
 
@@ -25,7 +29,7 @@ otu_orig_cs <- spp_dens %>%
 # Species filter
 Insert code for cleaning up OTUs here, if needed
 ```{r}
-#PathTaxonary <- "data"
+# PathTaxonary <- "data"
 Taxonary<-read.xlsx(PathTaxonary , sheet = 1)
 
 # filter small
