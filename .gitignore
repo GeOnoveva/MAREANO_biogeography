@@ -1,9 +1,10 @@
-# Excluir carpetas de datos vinculantes
+# Ignorar enlaces simbólicos específicos
+00_Data
+02_Op
+infomap-ubuntu
+
+# Ignorar todos los archivos .lnk (si corresponde)
 *.lnk
-infomap-ubuntu/
-/00_Data.lnk
-/02_Op.lnk
-/infomap-ubuntu.lnk
 
 # Excluir el archivo de configuración YAML
 config.yml
