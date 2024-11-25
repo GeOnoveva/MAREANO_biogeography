@@ -79,16 +79,16 @@
 # _____________________________________________
 
           if(person=='Genoveva'){
-            path_write_Input <-  "C:/R_projects/Hortal_collaboration/MAREANO_biogeography/regionalization/"
+            path_write_Input <-  "D:\\Mi unidad\\MAREANO_biogeography\\regionalization"
             # Directorio del ejecutable de Infomap
-            path.info <- "/mnt/c/R_projects/Hortal_collaboration/MAREANO_biogeography/infomap-ubuntu/"
+            path.info <- "D:\\Mi unidad\\MAREANO_biogeography\\infomap-ubuntu"
             # Directorio donde esta el input
-            path.in <- "/mnt/c/R_projects/Hortal_collaboration/MAREANO_biogeography/regionalization/"
+            path.in <- "D:\\Mi unidad\\MAREANO_biogeography\\regionalization"
             # Directorio donde quieres guardar el output
-            path.out <- "/mnt/c/R_projects/Hortal_collaboration/MAREANO_biogeography/regionalization/"
+            path.out <- "D:\\Mi unidad\\MAREANO_biogeography\\regionalization"
             # Run the function to get the 
-            dir.info.out <- 'C:/R_projects/Hortal_collaboration/MAREANO_biogeography/regionalization/Ip_Benthos2.tree'
-            dir.edges <- 'C:/R_projects/Hortal_collaboration/MAREANO_biogeography/regionalization/edge_Benthos'
+            dir.info.out <- "D:\\Mi unidad\\MAREANO_biogeography\\regionalization\\Ip_Benthos.tree"
+            dir.edges <- 'D:\\Mi unidad\\MAREANO_biogeography\\regionalization\\edge_Benthos'
           }
           
           
