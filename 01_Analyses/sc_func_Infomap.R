@@ -33,15 +33,15 @@
 
           write.input.info<-function(mat, path, file, edges_file, weighted=F){
             # Identify unique gegraphical units
-            id.cell <- unique(da[,1])
+            id.cell <- unique(mat[,1]) %>% pull
             # Identify unique OTUs
-            id.sps <- unique(da[,2])	
+            id.sps <- unique(mat[,2])	%>% pull
             # Occurrences
             if(weighted==F){
-              link.node<-da[,1:2]  
+              link.node<-mat[,1:2]  
             }
             if(weighted==T){
-              link.node<-da[,1:3]  
+              link.node<-mat[,1:3]  
             }
             # Create a database to relate the real names with the names in Infomap (a vector from 1 to the number of nodes)
             vert<-cbind(c(1:(length(id.cell)+length(id.sps))),c(id.cell,id.sps))
