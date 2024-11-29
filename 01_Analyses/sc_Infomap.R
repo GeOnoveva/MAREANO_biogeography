@@ -21,7 +21,7 @@
           #person  <- 'Ruben'  
           
           if (person == 'Ruben') {comp_path <- "00_Data/"}
-          if (person == 'Genoveva') {comp_path <- "C:/Users/genoveva/Havforskningsinstituttet/MAREANO Biotope modelling - General/VideoData/Output"}
+          if (person == 'Genoveva') {comp_path <- "U:\\Mareano\\VIDEOLAB\\VIDEO DATA\\200m_scale_species_by_sample\\Data_Delivery_2024\\"}
           
           
           #spp_dens <- read.csv(paste0(comp_path,"species_densities.csv")) %>% as.data.frame
@@ -33,32 +33,13 @@
           #spp_dens <- spp_dens %>% 
           #  mutate(VL = SampID %l% data.frame(samp_info_cs$SampID2, samp_info_cs$VL))
           
-          load(file.path(comp_path, "otu_Video_Small.rda"))
+          load("C:/Users/genoveva/Havforskningsinstituttet/MAREANO Biotope modelling - General/VideoData/Output/otu_Video_Small.rda")
           da <- pivot_longer(otu, cols= c(1:122))
           
-# 
-# Data cleaning
-# ___________________________________________________________________
-          
-          # if (person == 'Ruben') {PathTaxonary <- "00_Data/Taxonary.xlsx"}
-          # if (person == 'Genoveva') {PathTaxonary <- "U:\\Mareano\\VIDEOLAB\\VIDEO DATA\\200m_scale_species_by_sample\\Data_Delivery_2024\\Taxonary.xlsx"}
-          # Taxonary<-read.xlsx(PathTaxonary , sheet = 1)
-          # 
-          # # filter small
-          # otu_new_cs <- otu_orig_cs %>% filter(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$basal_area_cm2)>4|
-          #                                        is.na(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$basal_area_cm2)))
-          # 
-          # # filter non benthic
-          # otu_new_cs <- otu_new_cs %>% filter(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$Ecosystem_section=="Benthic"))
-          # 
-          # # filter non organism
-          # otu_new_cs <- otu_new_cs %>% filter(clean_taxonomy %l% data.frame(Taxonary$Reference_List, Taxonary$Object_type=="Organism"))
-          
-          
-          
+
           
 # 
-# Load data                                              ----
+# Load data                                             
 # ___________________________________________________________
 
           # La funcion actual requiere el siguiente formato
@@ -79,16 +60,16 @@
 # _____________________________________________
 
           if(person=='Genoveva'){
-            path_write_Input <-  "D:\\Mi unidad\\MAREANO_biogeography\\regionalization"
+            path_write_Input <-  "C:\\R_projects\\Hortal_collaboration\\MAREANO_biogeography\\regionalization\\"
             # Directorio del ejecutable de Infomap
-            path.info <- "D:\\Mi unidad\\MAREANO_biogeography\\infomap-ubuntu"
+            path.info <- "C:\\R_projects\\Hortal_collaboration\\MAREANO_biogeography\\infomap-ubuntu\\"
             # Directorio donde esta el input
-            path.in <- "D:\\Mi unidad\\MAREANO_biogeography\\regionalization"
+            path.in <- "C:\\R_projects\\Hortal_collaboration\\MAREANO_biogeography\\regionalization\\"
             # Directorio donde quieres guardar el output
-            path.out <- "D:\\Mi unidad\\MAREANO_biogeography\\regionalization"
+            path.out <- "C:\\R_projects\\Hortal_collaboration\\MAREANO_biogeography\\regionalization\\"
             # Run the function to get the 
-            dir.info.out <- "D:\\Mi unidad\\MAREANO_biogeography\\regionalization\\Ip_Benthos.tree"
-            dir.edges <- 'D:\\Mi unidad\\MAREANO_biogeography\\regionalization\\edge_Benthos'
+            dir.info.out <- "C:\\R_projects\\Hortal_collaboration\\MAREANO_biogeography\\regionalization\\Ip_Benthos.tree"
+            dir.edges <- 'C:\\R_projects\\Hortal_collaboration\\MAREANO_biogeography\\regionalization\\edge_Benthos\\'
           }
           
           
